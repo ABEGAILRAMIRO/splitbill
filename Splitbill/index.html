@@ -1,0 +1,150 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SplitEase - Bill Splitter</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <main class="page">
+
+        <header>
+            <div class="brand">
+                <div class="brand-mark">÷</div>
+                SplitEase
+            </div>
+            <span class="tag">Good food. Fair shares. No awkward math.</span>
+        </header>
+
+        <section class="hero">
+            <div class="eyebrow">LESS MATH, MORE MEMORIES</div>
+            <h1>Make splitting the bill<br><span>feel easy.</span></h1>
+            <p>Enter the bill, add a tip, and see what everyone owes.</p>
+        </section>
+
+        <section class="workspace">
+
+            <div class="panel">
+                <div class="panel-heading">
+                    <h2>Set up your bill</h2>
+                    <span class="step">01 / DETAILS</span>
+                </div>
+
+                <div class="field">
+                    <label>Bill amount</label>
+                    <div class="amount-wrap">
+                        <span id="currencySymbol">₱</span>
+                        <input type="number" id="bill" value="2500" min="0">
+                        <select id="currency">
+                            <option value="₱">PHP</option>
+                            <option value="$">USD</option>
+                            <option value="€">EUR</option>
+                            <option value="£">GBP</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <div class="tip-head">
+                        <label>Add a tip</label>
+                        <span id="tipValue">10%</span>
+                    </div>
+
+                    <div class="tip-options">
+                        <button class="tip-btn" data-tip="0">No tip</button>
+                        <button class="tip-btn" data-tip="5">5%</button>
+                        <button class="tip-btn active" data-tip="10">10%</button>
+                        <button class="tip-btn" data-tip="15">15%</button>
+                    </div>
+
+                    <div class="custom-tip">
+                        <span>Custom tip</span>
+                        <input type="number" id="customTip"
+                               min="0" max="100" placeholder="Enter %">
+                        <span>%</span>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <div class="people-top">
+                        <label>Who's splitting?</label>
+
+                        <div class="counter">
+                            <button id="minus">−</button>
+                            <strong id="peopleCount">3</strong>
+                            <button id="plus">+</button>
+                        </div>
+                    </div>
+
+                    <div id="peopleList" class="people-list"></div>
+
+                    <p class="hint">
+                        Edit everyone's name. The bill is split equally.
+                    </p>
+                </div>
+            </div>
+
+            <aside class="result-panel">
+                <div class="panel-heading">
+                    <h2>Your split summary</h2>
+                    <span class="step">02 / RESULTS</span>
+                </div>
+
+                <div class="total-label">Total including tip</div>
+                <div class="total" id="grandTotal">₱2,750.00</div>
+
+                <div class="per-person">
+                    <small>Each person pays</small>
+                    <strong id="eachPays">₱916.67</strong>
+                </div>
+
+                <div class="breakdown">
+                    <div class="break-row">
+                        <span>Original bill</span>
+                        <strong id="billOut">₱2,500.00</strong>
+                    </div>
+
+                    <div class="break-row">
+                        <span>Tip (<span id="tipOut">10</span>%)</span>
+                        <strong id="tipAmount">₱250.00</strong>
+                    </div>
+
+                    <div class="break-row">
+                        <span>Number of people</span>
+                        <strong id="peopleOut">3</strong>
+                    </div>
+                </div>
+
+                <div class="shares-title">
+                    <span>Individual shares</span>
+                    <span id="sharesCount">3 people</span>
+                </div>
+
+                <div id="shares" class="shares"></div>
+
+                <div class="actions">
+                    <button class="primary" id="copyBtn">
+                        Copy split summary
+                    </button>
+                    <button class="secondary" id="resetBtn">
+                        Reset
+                    </button>
+                </div>
+            </aside>
+
+        </section>
+
+        <footer>
+            SplitEase · Split fairly, settle happily.
+        </footer>
+
+    </main>
+
+    <div class="toast" id="toast">Summary copied!</div>
+
+    <script src="script.js"></script>
+</body>
+</html>
